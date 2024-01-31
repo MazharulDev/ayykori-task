@@ -1,16 +1,13 @@
 /* eslint-disable no-unused-vars */
-import { Model, Types } from "mongoose";
+import { Model } from "mongoose";
 
 export type IProduct = {
   name: string;
   quantity: Number;
 };
-export type UserModel = Model<IProduct, Record<string, unknown>>;
+export type ProductModel = Model<IProduct, Record<string, unknown>>;
 
-// export type UserModel = Model<IUser, Record<string, unknown>>;
-// export type UserModel = Model<IUser, Record<string, unknown>, IUserMethods>;
-
-export type IUserFilters = {
+export type IProductFilters = {
   searchTerm?: string;
   name?: string;
 };

@@ -1,7 +1,7 @@
 import express from "express";
-import { UserController } from "./product.controller";
+import { ProductController } from "./product.controller";
 
 const router = express.Router();
 
-router.post("/save", UserController.saveProduct);
+router.post("/save", ProductController.saveProduct);
 export const ProductRoutes = router;

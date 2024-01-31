@@ -16,6 +16,6 @@ const saveProduct = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const UserController = {
+export const ProductController = {
   saveProduct,
 };

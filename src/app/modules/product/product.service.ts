@@ -1,8 +1,8 @@
 import { IProduct } from "./product.interface";
-import { User } from "./product.model";
+import { Product } from "./product.model";
 
 const createUser = async (payload: IProduct): Promise<IProduct> => {
-  const result = await User.create(payload);
+  const result = await Product.create(payload);
   return result;
 };
 
