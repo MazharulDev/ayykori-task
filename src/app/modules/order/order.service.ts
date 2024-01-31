@@ -1,9 +1,19 @@
+import mongoose from "mongoose";
 import { IOrder } from "./order.interface";
 import { Order } from "./order.model";
 
 const createOrder = async (payload: IOrder): Promise<IOrder> => {
-  const result = await Order.create(payload);
-  return result;
+  const session = await mongoose.startSession();
+  session.startTransaction();
+  try {
+    const result = await Order.create(payload);
+    return result;
+  } catch (error) {
+    await session.abortTransaction();
+    throw error;
+  } finally {
+    session.endSession();
+  }
 };
 
 const viewAllOrder = async (): Promise<IOrder[]> => {
